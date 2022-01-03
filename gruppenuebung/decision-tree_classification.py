@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn import neighbors
+from sklearn import tree
 from sklearn.metrics import f1_score
 
 MAX_NUM_NEIGHBORS = 15
@@ -17,7 +17,7 @@ X_test = test.iloc[:, :-1].values
 y_test = test.iloc[:, -1].values
 
 # create classifier and fit to the training set
-classifier = neighbors.KNeighborsClassifier(n_neighbors=MAX_NUM_NEIGHBORS, weights=WEIGHTS, metric=METRIC)
+classifier = tree.DecisionTreeClassifier()
 classifier.fit(X_train, y_train)
 
 # predict test set results
